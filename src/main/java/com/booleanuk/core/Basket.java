@@ -11,8 +11,12 @@ public class Basket {
     return bagels.size();
   }
 
+  private boolean isFull() {
+    return this.bagels.size() == this.capacity;
+  }
+
   public boolean add(Bagel bagel) {
-    if (this.bagels.size() == this.capacity)
+    if (this.isFull())
       return false;
 
     this.bagels.add(bagel);
