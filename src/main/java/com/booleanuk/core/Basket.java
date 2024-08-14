@@ -23,4 +23,11 @@ public class Basket {
     return true;
   }
 
+  public boolean remove(Bagel bagel) {
+    if (!this.bagels.contains(bagel))
+      return false;
+
+    this.bagels.remove(bagel);
+    return true;
+  }
 }
