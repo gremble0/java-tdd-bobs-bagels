@@ -12,4 +12,14 @@ class BasketTest {
     basket.add(Bagel.Rainbow);
     Assertions.assertEquals(basket.size(), 2);
   }
+
+  @Test
+  public void testRemoveBagel() {
+    Basket basket = new Basket();
+    basket.add(Bagel.Plain);
+    basket.add(Bagel.Rainbow);
+
+    Assertions.assertTrue(basket.remove(Bagel.Plain));
+    Assertions.assertFalse(basket.remove(Bagel.Everything));
+  }
 }
