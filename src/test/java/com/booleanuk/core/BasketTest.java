@@ -32,10 +32,19 @@ class BasketTest {
   public void testRemoveBagel() {
     Basket basket = new Basket();
     basket.add(Bagel.Plain);
+    basket.add(Bagel.Plain);
     basket.add(Bagel.Rainbow);
 
     Assertions.assertTrue(basket.remove(Bagel.Plain));
-    Assertions.assertFalse(basket.remove(Bagel.Everything));
+    Assertions.assertTrue(basket.remove(Bagel.Plain));
+  }
+
+  @Test
+  public void testRemoveNonExistingBagel() {
+    Basket basket = new Basket();
+    Assertions.assertFalse(basket.remove(Bagel.Plain));
+    Assertions.assertFalse(basket.remove(Bagel.Rainbow));
+    Assertions.assertFalse(basket.remove(Bagel.Egg));
   }
 
   @Test
