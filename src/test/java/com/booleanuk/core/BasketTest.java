@@ -16,16 +16,14 @@ class BasketTest {
   @Test
   public void testAddBagelToFullBasket() {
     Basket basket = new Basket();
-    Assertions.assertEquals(basket.capacity, 5);
+    Assertions.assertEquals(basket.capacity, 3);
 
     Assertions.assertTrue(basket.add(Bagel.Plain));
     Assertions.assertTrue(basket.add(Bagel.Rainbow));
     Assertions.assertTrue(basket.add(Bagel.Egg));
-    Assertions.assertTrue(basket.add(Bagel.Egg));
-    Assertions.assertTrue(basket.add(Bagel.Egg));
 
     Assertions.assertFalse(basket.add(Bagel.Egg));
-    Assertions.assertEquals(basket.capacity, 5);
+    Assertions.assertEquals(basket.capacity, 3);
   }
 
   @Test
@@ -50,17 +48,17 @@ class BasketTest {
   @Test
   public void testSetCapacity() {
     Basket basket = new Basket();
-    Assertions.assertEquals(basket.capacity, 5);
-    basket.setCapacity(10);
-    Assertions.assertEquals(basket.capacity, 10);
-
+    Assertions.assertEquals(basket.capacity, 3);
     Assertions.assertTrue(basket.add(Bagel.Plain));
     Assertions.assertTrue(basket.add(Bagel.Rainbow));
     Assertions.assertTrue(basket.add(Bagel.Egg));
+    Assertions.assertFalse(basket.add(Bagel.Egg));
+
+    basket.setCapacity(5);
+    Assertions.assertEquals(basket.capacity, 5);
+
     Assertions.assertTrue(basket.add(Bagel.Egg));
     Assertions.assertTrue(basket.add(Bagel.Egg));
-    Assertions.assertTrue(basket.add(Bagel.Rainbow));
-    Assertions.assertTrue(basket.add(Bagel.Everything));
-    Assertions.assertTrue(basket.add(Bagel.Egg));
+    Assertions.assertFalse(basket.add(Bagel.Rainbow));
   }
 }
