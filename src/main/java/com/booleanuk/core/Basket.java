@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Basket {
-  private int capacity = 5;
+  public int capacity = 5;
   private List<Bagel> bagels = new ArrayList<>();
 
   public int size() {
@@ -29,5 +29,9 @@ public class Basket {
 
     this.bagels.remove(bagel);
     return true;
+  }
+
+  public void setCapacity(int newCapacity) {
+    this.capacity = newCapacity;
   }
 }
